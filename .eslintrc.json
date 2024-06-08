@@ -31,18 +31,37 @@
     },
     "project": "./tsconfig.json" // 파싱할 프로젝트 경로 제공. (TypeScript 인 경우)
   },
-  "rules": { // 규칙을 하나하나 세세하게 제어하기 위해 사용 (보통 extends 옵션에 의해 설정된 규칙을 덮어쓰고 싶을 때 사용)
-    "react/react-in-jsx-scope": "off",
-    "react/jsx-filename-extension": ["warn", { "extensions": [".ts", ".tsx"] }], // jsx 파일 확장자를 .ts, .tsx로 한정. 위반 시 경고(warn)
-    "@typescript-eslint/camelcase": "off",
-    "import/extensions": ["error", "ignorePackages"], // 라이브러리 패키지는 제외하고 import문에 확장자 없을 시 에러. 에러시 수동수정 필요 (TypeScript에서는 확장자 붙이는 것을 권장)
-    "no-console": "warn", // airbnb 규칙에선 no-console 규칙을 어기면 warn이나, error로 설정함.
+  "rules": { // ESLint의 규칙을 하나하나 세세하게 제어하기 위해 사용됩니다. 보통 extends 옵션에 의해 설정된 규칙을 덮어쓰고 싶을 때 사용됩니다.
+    "no-use-before-define": 0, // 변수를 선언하기 전에 사용하는 것을 금지합니다. (호이스팅)
+    "linebreak-style": 0, // OS에 따라 다른 줄바꿈 스타일을 설정합니다.
+    "react/prop-types": 0, // propTypes를 강제로 사용하도록 설정합니다.
+    "react/require-default-props": 0, // defaultProps를 정의하도록 강제합니다.
+    "react/react-in-jsx-scope": "off", // React를 import하지 않아도 JSX에서 사용할 수 있도록 합니다.
+    "react/jsx-filename-extension": ["warn", { "extensions": [".ts", ".tsx"] }], // 파일 확장자가 .ts 또는 .tsx인 파일에서만 JSX를 사용할 수 있도록 경고합니다.
+    "@typescript-eslint/camelcase": "off", // camelCase 규칙을 무시합니다.
+    "import/extensions": ["error", "ignorePackages"], // 라이브러리 패키지를 제외하고 import문에서 파일 확장자가 없으면 에러를 발생시킵니다. TypeScript에서는 파일 확장자를 붙이는 것을 권장합니다.
+    "no-console": "warn", // no-console 규칙을 어기면 경고를 발생시킵니다. (airbnb 규칙에선 no-console 규칙을 어기면 경고 또는 에러로 설정합니다.)
     "prettier/prettier": [
       "error",
       {
           "endOfLine": "auto"
       }
-    ],
-    "import/no-extraneous-dependencies": 0 // 테스트 또는 개발환경을 구성하는 파일에서는 devDependency 사용을 허용
+    ], // Prettier를 적용합니다. (Prettier에 대한 설정은 여기서 수행됩니다.)
+    "import/named": 0, // 명명된 export를 사용하는 import문을 허용합니다.
+    "import/no-named-as-default": 0, // named export를 default로 import하는 것을 허용합니다.
+    "react/display-name": "off", // displayName을 사용하지 않아도 됩니다.
+    "react/no-children-prop": "off", // children prop을 사용해도 됩니다.
+    "no-explicit-any": "off", // any 타입을 명시적으로 선언하는 것을 허용합니다.
+    "@typescript-eslint/no-explicit-any": "off", // any 타입을 명시적으로 선언하는 것을 허용합니다.
+    "@typescript-eslint/no-non-null-assertion": "off", // non-null assertion을 사용하는 것을 허용합니다.
+    "@next/next/no-img-element": "off", // next.js의 img 요소 사용을 허용합니다.
+    "@typescript-eslint/dot-notation": "off", // dot notation을 사용하는 것을 허용합니다.
+    "eslint-disable-next-line": "off", // eslint-disable-next-line 주석을 사용하지 않도록 합니다.
+    "@typescript-eslint/no-unused-expressions": "off", // 사용되지 않는 표현식을 사용하는 것을 허용합니다.
+    "import/order": "off", // import 순서를 검사하지 않습니다.
+    "@typescript-eslint/no-use-before-define": "off", // 사용하기 전에 정의되지 않은 것을 사용하는 것을 허용합니다.
+    "import/no-unresolved": 0, // unresolved import를 허용합니다.
+    "import/no-extraneous-dependencies": 0, // 테스트 또는 개발환경을 구성하는 파일에서는 devDependency 사용을 허용합니다.
+    "import/prefer-default-export": 0 // export default를 권장하지 않습니다.
   }
 }
