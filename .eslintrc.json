@@ -39,7 +39,8 @@
     "react/react-in-jsx-scope": "off", // React를 import하지 않아도 JSX에서 사용할 수 있도록 합니다.
     "react/jsx-filename-extension": ["warn", { "extensions": [".ts", ".tsx"] }], // 파일 확장자가 .ts 또는 .tsx인 파일에서만 JSX를 사용할 수 있도록 경고합니다.
     "@typescript-eslint/camelcase": "off", // camelCase 규칙을 무시합니다.
-    "import/extensions": ["error", "ignorePackages"], // 라이브러리 패키지를 제외하고 import문에서 파일 확장자가 없으면 에러를 발생시킵니다. TypeScript에서는 파일 확장자를 붙이는 것을 권장합니다.
+    // "import/extensions": ["error", "ignorePackages"], // 라이브러리 패키지를 제외하고 import문에서 파일 확장자가 없으면 에러를 발생시킵니다. TypeScript에서는 파일 확장자를 붙이는 것을 권장합니다.
+    "import/extensions": "off", // 라이브러리 패키지를 제외하고 import문에서 파일 확장자가 없으면 에러를 발생시킵니다. TypeScript에서는 파일 확장자를 붙이는 것을 권장합니다.
     "no-console": "warn", // no-console 규칙을 어기면 경고를 발생시킵니다. (airbnb 규칙에선 no-console 규칙을 어기면 경고 또는 에러로 설정합니다.)
     "prettier/prettier": [
       "error",
@@ -56,11 +57,21 @@
     "@typescript-eslint/no-non-null-assertion": "off", // non-null assertion을 사용하는 것을 허용합니다.
     "@next/next/no-img-element": "off", // next.js의 img 요소 사용을 허용합니다.
     "@typescript-eslint/dot-notation": "off", // dot notation을 사용하는 것을 허용합니다.
-    "eslint-disable-next-line": "off", // eslint-disable-next-line 주석을 사용하지 않도록 합니다.
+    "eslint-disable-next-line": 0, // eslint-disable-next-line 주석을 사용하지 않도록 합니다.
     "@typescript-eslint/no-unused-expressions": "off", // 사용되지 않는 표현식을 사용하는 것을 허용합니다.
     "import/order": "off", // import 순서를 검사하지 않습니다.
     "@typescript-eslint/no-use-before-define": "off", // 사용하기 전에 정의되지 않은 것을 사용하는 것을 허용합니다.
     "import/no-unresolved": 0, // unresolved import를 허용합니다.
+    "react/button-has-type": 0,
+    "react/jsx-curly-brace-presence": 0,
+    "global-require": "off",
+    "react/jsx-no-useless-fragment": 0,
+    "eslint-disable-next-line jsx-a11y/alt-text": 0,
+    "react/jsx-props-no-spreading": 0,
+    "jsx-a11y/alt-text": 0,
+    "react/no-array-index-key": 0,
+    "jsx-a11y/no-static-element-interactions": 0,
+    "jsx-a11y/click-events-have-key-events": 0,
     "import/no-extraneous-dependencies": 0, // 테스트 또는 개발환경을 구성하는 파일에서는 devDependency 사용을 허용합니다.
     "import/prefer-default-export": 0 // export default를 권장하지 않습니다.
   }

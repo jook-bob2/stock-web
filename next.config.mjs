@@ -6,11 +6,6 @@ const withVanillaExtract = createVanillaExtractPlugin();
 const nextConfig = {
   compiler: {
     removeConsole: process.env.NEXT_PUBLIC_ENV === 'production',
-    styledComponents: {
-      displayName: true,
-      ssr: true,
-      minify: true,
-    },
   },
   compress: true, // 번들 압축 설정
   poweredByHeader: false, // 응답 헤더에 "X-Powered-By" 필드를 포함하지 않음.
