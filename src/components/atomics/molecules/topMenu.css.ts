@@ -14,6 +14,8 @@ export const container = style({
 
 export const parentUl = style({
   display: 'flex',
+  justifyContent: 'center',
+  alignItems: 'center',
 });
 
 export const parentLi = style({
@@ -22,4 +24,11 @@ export const parentLi = style({
 
 export const parentLink = style({
   color: vars.themeColor.color.mainFontColor,
+  padding: '4px 8px',
+  ':hover': {
+    fontWeight: vars.fontWeight.large,
+    backgroundColor: vars.themeColor.color.hoverColor,
+    border: 'solid 0',
+    borderRadius: '0.75rem',
+  },
 });

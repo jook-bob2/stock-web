@@ -2,6 +2,10 @@
 
 import React from 'react';
 
+/**
+ * @todo @vanilla-extract/recipes 설치 후 개발 예정
+ */
+
 // type Color =
 //   | 'contentBackground'
 //   | 'white'

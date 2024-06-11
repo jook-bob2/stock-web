@@ -103,6 +103,8 @@ const themeColor = createThemeContract({
     mainFontColor: null, // 폰트 색상
     borderColor: null, // 테두리 색상
     footerBackground: null, // 푸터 색상
+    hoverColor: null, // ::hover 색상
+    selectionColor: null, // ::selection 색상
   },
 });
 
@@ -114,6 +116,8 @@ export const lightTheme = createTheme(themeColor, {
     borderColor: global.color.black.default,
     headerBackground: global.color.white[200],
     footerBackground: global.color.white.default,
+    hoverColor: global.color.white.default,
+    selectionColor: global.color.gray[400],
   },
 });
 
@@ -125,6 +129,8 @@ export const darkTheme = createTheme(themeColor, {
     borderColor: global.color.white.default,
     headerBackground: global.color.black.default,
     footerBackground: global.color.black.default,
+    hoverColor: global.color.gray[200],
+    selectionColor: global.color.blue[400],
   },
 });
 
