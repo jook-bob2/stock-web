@@ -2,7 +2,7 @@
 
 import { ThemeContextType } from '@/types/themes';
 import Image from 'next/image';
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import { useTheme } from 'next-themes';
 import * as style from './themeToggle.css';
 import ToggleSwitch from '../atoms/ToggleSwitch';
@@ -12,18 +12,11 @@ import ToggleSwitch from '../atoms/ToggleSwitch';
  * @returns
  */
 export default function ThemeToggle() {
-  const [isRender, setIsRender] = useState(false);
   const { theme, setTheme } = useTheme() as ThemeContextType;
-
-  useEffect(() => {
-    setIsRender(true);
-  }, []);
 
   const onClickChangeTheme = () => {
     setTheme(theme === 'light' ? 'dark' : 'light');
   };
-
-  if (!isRender) return null;
 
   return (
     <div className={style.container}>

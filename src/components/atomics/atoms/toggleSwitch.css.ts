@@ -10,7 +10,7 @@ export const toggleSwitch = style({
   position: 'relative',
   width: '60px',
   height: '30px',
-  backgroundColor: vars.color.white[100],
+  backgroundColor: vars.color['white-100'],
   borderRadius: '30px',
   borderStyle: 'none',
   transition: 'background-color 0.3s',
@@ -34,7 +34,7 @@ export const toggleSlider = style({
 });
 
 export const toggleChecked = style({
-  backgroundColor: vars.color.darkGray[600],
+  backgroundColor: vars.color['gray-600'],
 });
 
 export const sliderChecked = style({

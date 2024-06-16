@@ -6,5 +6,5 @@ export const container = style({});
 // 컨테이너 내 요소가 선택되었을 때 색상 지정
 globalStyle(`${container} ::selection`, {
   backgroundColor: vars.themeColor.color.selectionColor,
-  color: vars.color.yellow[200],
+  color: vars.color['yellow-200'],
 });
