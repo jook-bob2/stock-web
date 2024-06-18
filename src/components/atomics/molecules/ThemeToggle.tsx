@@ -1,18 +1,17 @@
 'use client';
 
-import { ThemeContextType } from '@/types/themes';
 import Image from 'next/image';
 import React from 'react';
-import { useTheme } from 'next-themes';
 import * as style from './themeToggle.css';
 import ToggleSwitch from '../atoms/ToggleSwitch';
+import useMyTheme from '@/hooks/useMyTheme';
 
 /**
  * @desc 테마 선택 버튼
  * @returns
  */
 export default function ThemeToggle() {
-  const { theme, setTheme } = useTheme() as ThemeContextType;
+  const { theme, setTheme } = useMyTheme();
 
   const onClickChangeTheme = () => {
     setTheme(theme === 'light' ? 'dark' : 'light');

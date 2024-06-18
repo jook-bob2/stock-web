@@ -1,25 +1,7 @@
 import React from 'react';
 import * as style from './topMenu.css';
 import MyLink from '../atoms/MyLink';
-
-const MENU_LIST = [
-  {
-    name: '아이템1',
-    href: '/item1',
-  },
-  {
-    name: '아이템2',
-    href: '/item2',
-  },
-  {
-    name: '아이템3',
-    href: '/item3',
-  },
-  {
-    name: '아이템4',
-    href: '/item4',
-  },
-];
+import { MENU_LIST } from '@/constants/menu';
 
 export default function TopMenu() {
   return (
@@ -31,7 +13,7 @@ export default function TopMenu() {
               key={index}
               className={style.parentLi}>
               <MyLink
-                href={m.href}
+                href={m.link}
                 className={style.parentLink}>
                 {m.name}
               </MyLink>

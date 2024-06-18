@@ -2,7 +2,20 @@ import { defineProperties, createSprinkles } from '@vanilla-extract/sprinkles';
 import { MEDIA_QUERY } from '@/constants/mediaQuery';
 import { COLORS } from '@/constants/colors';
 
-const { MOBILE, DESKTOP, LAPTOP, SMALL_TABLET, TABLET } = MEDIA_QUERY;
+const {
+  SMALL_MOBILE,
+  MOBILE,
+  DESKTOP,
+  LAPTOP,
+  SMALL_TABLET,
+  TABLET,
+  MAX_SMALL_MOBILE,
+  MAX_MOBILE,
+  MAX_SMALL_TABLET,
+  MAX_TABLET,
+  MAX_LAPTOP,
+  MAX_DESKTOP,
+} = MEDIA_QUERY;
 
 const space = {
   none: 0,
@@ -98,11 +111,18 @@ const sizes = {
 
 const responsiveProperties = defineProperties({
   conditions: {
+    smallMobile: { '@media': SMALL_MOBILE },
     mobile: { '@media': MOBILE },
     smallTablet: { '@media': SMALL_TABLET },
     tablet: { '@media': TABLET },
     laptop: { '@media': LAPTOP },
     desktop: { '@media': DESKTOP },
+    maxSmallMobile: { '@media': MAX_SMALL_MOBILE },
+    maxMobile: { '@media': MAX_MOBILE },
+    maxSmallTablet: { '@media': MAX_SMALL_TABLET },
+    maxTablet: { '@media': MAX_TABLET },
+    maxLaptop: { '@media': MAX_LAPTOP },
+    maxDesktop: { '@media': MAX_DESKTOP },
   },
   defaultCondition: 'desktop',
   properties: {

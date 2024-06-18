@@ -13,6 +13,11 @@ const nextConfig = {
   images: {},
   reactStrictMode: false,
   webpack: (config, { isServer, dev }) => {
+    config.module.rules.push({
+      test: /\.svg$/,
+      use: ['@svgr/webpack'],
+    });
+
     if (!isServer) {
       const isProd = process.env.NEXT_PUBLIC_ENV === 'production';
       const isDev = dev;

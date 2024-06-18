@@ -18,6 +18,8 @@ export const vars = createGlobalThemeContract(
         footerBackground: null, // 푸터 색상
         hoverColor: null, // ::hover 색상
         selectionColor: null, // ::selection 색상
+        hamburgerColor: null, // 햄버거 색상
+        sideNavBgColor: null, // 사이드 메뉴 색상
       },
     },
     fontSize: {
@@ -52,6 +54,8 @@ createGlobalTheme(':root', vars, {
       footerBackground: vars.color['white-200'],
       hoverColor: vars.color['white-50'],
       selectionColor: vars.color['gray-400'],
+      hamburgerColor: vars.color['stone-800'],
+      sideNavBgColor: vars.color['zinc-300'],
     },
   },
   fontSize: {
@@ -80,6 +84,8 @@ export const lightTheme = createTheme(vars.themeColor, {
     footerBackground: vars.color['white-200'],
     hoverColor: vars.color['white-50'],
     selectionColor: vars.color['gray-400'],
+    hamburgerColor: vars.color['stone-800'],
+    sideNavBgColor: vars.color['zinc-300'],
   },
 });
 
@@ -89,10 +95,12 @@ export const darkTheme = createTheme(vars.themeColor, {
     contentBackground: vars.color['slate-700'],
     mainFontColor: vars.color['white-200'],
     borderColor: vars.color['white-50'],
-    headerBackground: vars.color['slate-800'],
-    footerBackground: vars.color['slate-800'],
+    headerBackground: vars.color['zinc-800'],
+    footerBackground: vars.color['zinc-800'],
     hoverColor: vars.color['gray-700'],
     selectionColor: vars.color['blue-400'],
+    hamburgerColor: vars.color['neutral-100'],
+    sideNavBgColor: vars.color['zinc-700'],
   },
 });
 
