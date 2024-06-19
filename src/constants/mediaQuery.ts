@@ -1,8 +1,4 @@
 /**
- * @todo @vanilla-extract/sprinkles 마이그레이션 후 제거 예정
- */
-
-/**
  * @desc 미디어 쿼리 상수 - SM 모바일
  */
 export const MEDIA_SM_MOBILE = '280x';

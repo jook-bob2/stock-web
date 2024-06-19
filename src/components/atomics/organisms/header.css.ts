@@ -5,6 +5,6 @@ export const container = style({
   display: 'flex',
   position: 'relative',
   backgroundColor: vars.themeColor.color.headerBackground,
-  height: '8vh',
   alignItems: 'center',
+  minHeight: '8vh',
 });
