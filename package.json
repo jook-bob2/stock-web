@@ -19,13 +19,16 @@
     "prepare": "husky"
   },
   "dependencies": {
+    "@tanstack/react-query": "^5.50.1",
     "@vanilla-extract/recipes": "^0.5.3",
     "@vanilla-extract/sprinkles": "^1.6.2",
+    "axios": "^1.7.2",
     "next": "14.2.3",
     "next-themes": "^0.3.0",
     "react": "^18",
+    "react-device-detect": "^2.2.3",
     "react-dom": "^18",
-    "recoil": "^0.7.7"
+    "zustand": "^4.5.4"
   },
   "devDependencies": {
     "@svgr/webpack": "^8.1.0",

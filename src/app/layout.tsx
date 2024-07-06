@@ -1,26 +1,18 @@
 import '../styles/reset.css';
 import '../styles/global.css';
 import MainLayout from '@/components/layouts/MainLayout';
-import RecoilContainer from '@/containers/RecoilContainer';
 import type { Metadata, Viewport } from 'next';
-import { Noto_Sans_KR, Roboto } from 'next/font/google';
-import Provider from '@/stores/providers/ThemeProviders';
+import Provider from '@/stores/providers';
+import { notoSansKr } from '@/styles/fonts';
+import { TemplateString } from 'next/dist/lib/metadata/types/metadata-types';
+import { getServerInitData } from '@/utils/server-util';
+import React from 'react';
 
-// 기본 폰트
-const notoSansKr = Noto_Sans_KR({
-  // preload: true, 기본값
-  subsets: ['latin'], // 또는 preload: false
-  weight: ['100', '400', '700', '900'], // 가변 폰트가 아닌 경우, 사용할 fontWeight 배열
-});
-
-// 추가 폰트
-const roboto = Roboto({
-  subsets: ['latin'], // preload에 사용할 subsets입니다.
-  weight: ['100', '400', '700'],
-  variable: '--roboto', // CSS 변수 방식으로 스타일을 지정할 경우에 사용합니다.
-});
-
-const TITLE = '스톡 - 실시간 차트';
+const TITLE: TemplateString = {
+  template: '%s | 스톡', // title 속성을 동적으로 설정할 수 있음.
+  default: '스톡 - 실시간 차트', // 만약 title 속성이 정의되지 않은 페이지가 있을 경우 default 속성을 사용한다.
+  // absolute: '', // 하위 페이지에서 사용된다. 상위 페이지의 title은 무시되고, 하위 페이지의 title을 설정할 수 있다.
+};
 const DESCRIPTION = '실시간 주식 데이터와 고급 차트 도구를 제공하는 강력한 웹 애플리케이션입니다.';
 
 export const metadata: Metadata = {
@@ -50,20 +42,20 @@ export const viewport: Viewport = {
   // interactiveWidget: 'resizes-visual',
 };
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const initData = await getServerInitData();
+
   return (
     <html
       lang='ko'
       suppressHydrationWarning>
-      <body className={`${notoSansKr.className} ${roboto.variable}`}>
-        <Provider>
-          <RecoilContainer>
-            <MainLayout>{children}</MainLayout>
-          </RecoilContainer>
+      <body className={`${notoSansKr.className}`}>
+        <Provider initData={initData}>
+          <MainLayout initData={initData}>{children}</MainLayout>
         </Provider>
       </body>
     </html>

@@ -25,15 +25,14 @@ import React from 'react';
 
 // type Size = 'S' | 'XS' | 'M' | 'L' | 'XL';
 
-interface Props {
+interface Props extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   // color: Color;
   // size: Size;
   children: React.ReactNode;
-  onClick: (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => void;
 }
 
-function Button({ children, onClick }: Props) {
-  return <button onClick={onClick}>{children}</button>;
+function Button({ children, ...rest }: Props) {
+  return <button {...rest}>{children}</button>;
 }
 
 export default Button;
