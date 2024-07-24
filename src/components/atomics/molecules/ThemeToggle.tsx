@@ -5,28 +5,32 @@ import React from 'react';
 import * as style from './themeToggle.css';
 import ToggleSwitch from '../atoms/ToggleSwitch';
 import useMyTheme from '@/hooks/useMyTheme';
+import { InitProps } from '@/types/initProps';
+import useIsDarkMode from '@/hooks/useIsDarkMode';
 
 /**
  * @desc 테마 선택 버튼
  * @returns
  */
-export default function ThemeToggle() {
-  const { theme, setTheme } = useMyTheme();
+export default function ThemeToggle({ initData }: InitProps) {
+  const { theme: clientTheme, setTheme } = useMyTheme();
+  const { theme } = initData;
+  const isDarkMode = useIsDarkMode({ clientTheme, serverTheme: theme });
 
-  const onClickChangeTheme = () => {
-    setTheme(theme === 'light' ? 'dark' : 'light');
+  const onClickChangeTheme = (e: React.MouseEvent) => {
+    setTheme(e, isDarkMode ? 'light' : 'dark');
   };
 
   return (
     <div className={style.container}>
       <ToggleSwitch
         onClick={onClickChangeTheme}
-        isChecked={theme === 'dark'}>
+        isChecked={isDarkMode}>
         <Image
-          src={theme === 'dark' ? '/icons/moon-icon.svg' : '/icons/sunny-icon.svg'}
+          src={isDarkMode ? '/icons/moon-icon.svg' : '/icons/sunny-icon.svg'}
           width={24}
           height={24}
-          alt={theme === 'dark' ? 'dark-theme' : 'light-theme'}
+          alt={isDarkMode ? 'dark-theme' : 'light-theme'}
           priority
         />
       </ToggleSwitch>

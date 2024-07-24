@@ -48,14 +48,15 @@ export default async function RootLayout({
   children: React.ReactNode;
 }>) {
   const initData = await getServerInitData();
+  const props = { initData };
 
   return (
     <html
       lang='ko'
       suppressHydrationWarning>
       <body className={`${notoSansKr.className}`}>
-        <Provider initData={initData}>
-          <MainLayout initData={initData}>{children}</MainLayout>
+        <Provider {...props}>
+          <MainLayout {...props}>{children}</MainLayout>
         </Provider>
       </body>
     </html>

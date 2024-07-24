@@ -11,6 +11,7 @@ function ThemeProvider({ children }: { children: React.ReactNode }) {
     <Provider
       attribute='class'
       defaultTheme='light'
+      storageKey={undefined}
       value={{
         light: lightTheme,
         dark: darkTheme,

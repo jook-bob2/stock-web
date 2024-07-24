@@ -8,9 +8,9 @@ export default function TopMenu() {
     <div className={style.container}>
       <nav>
         <ul className={style.parentUl}>
-          {MENU_LIST.map((m, index) => (
+          {MENU_LIST.map((m) => (
             <li
-              key={index}
+              key={m.link}
               className={style.parentLi}>
               <MyLink
                 href={m.link}

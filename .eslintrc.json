@@ -76,6 +76,9 @@
     "consistent-return": 0,
     "no-nested-ternary": 0,
     "import/no-extraneous-dependencies": 0, // 테스트 또는 개발환경을 구성하는 파일에서는 devDependency 사용을 허용합니다.
-    "import/prefer-default-export": 0 // export default를 권장하지 않습니다.
+    "import/prefer-default-export": 0, // export default를 권장하지 않습니다.
+    "@typescript-eslint/no-unused-vars": "error",
+    "react/function-component-definition": "off",
+    "react-hooks/exhaustive-deps": "off"
   }
 }

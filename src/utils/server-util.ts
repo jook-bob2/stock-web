@@ -3,6 +3,7 @@ import { getSelectorDevice } from './user-agent-util';
 import { getIsBot } from './bot-util';
 import { ReadonlyRequestCookies } from 'next/dist/server/web/spec-extension/adapters/request-cookies';
 import { TOKEN_OPTION } from '@/constants/token';
+import { ThemeName } from '@/types/themes';
 
 type ProfileType = {
   name: string;
@@ -17,6 +18,7 @@ export type InitServerDataType = {
   isAos: boolean;
   isBot: boolean;
   profile: ProfileType | null;
+  theme: ThemeName;
 };
 
 /**
@@ -29,6 +31,7 @@ export const getServerInitData = async (): Promise<InitServerDataType> => {
   const userAgent = serverHeader.get('user-agent');
   const { isAndroid: isAos, isIOS: isIos, isMobile, isTablet, isDesktop, isSafari } = getSelectorDevice(userAgent);
   const isBot = getIsBot(userAgent);
+  const theme = (serverCookie.get('theme')?.value as ThemeName) || 'light';
 
   return {
     isAos,
@@ -39,6 +42,7 @@ export const getServerInitData = async (): Promise<InitServerDataType> => {
     isSafari,
     isBot,
     profile,
+    theme,
   };
 };
 

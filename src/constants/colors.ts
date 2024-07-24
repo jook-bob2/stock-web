@@ -3,11 +3,13 @@
  */
 export const COLORS = {
   'white-50': '#ffffff',
+  'white-75': '#f0f0f0',
   'white-100': '#f2f2f2',
   'white-200': '#e5e5e5',
   'white-300': '#d8d8d8',
 
   'black-50': '#191919',
+  'black-75': '#2c2c2c',
   'black-100': '#cccccc',
   'black-200': '#999999',
   'black-300': '#666666',

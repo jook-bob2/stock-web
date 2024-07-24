@@ -10,12 +10,10 @@ interface Props {
   initData: InitServerDataType;
 }
 
-export default function MainLayout({ children, initData }: Props) {
-  console.log('init data ', initData);
-
+export default function MainLayout({ children, ...props }: Props) {
   return (
     <div className={style.container}>
-      <Header />
+      <Header {...props} />
       <MainContent>{children}</MainContent>
       <Footer />
     </div>
