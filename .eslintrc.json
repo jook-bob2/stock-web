@@ -79,6 +79,7 @@
     "import/prefer-default-export": 0, // export default를 권장하지 않습니다.
     "@typescript-eslint/no-unused-vars": "error",
     "react/function-component-definition": "off",
-    "react-hooks/exhaustive-deps": "off"
+    "react-hooks/exhaustive-deps": "off",
+    "import/no-cycle": "off"
   }
 }

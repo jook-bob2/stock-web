@@ -46,11 +46,11 @@ createGlobalTheme(':root', vars, {
   },
   themeColor: {
     color: {
-      mainBackground: vars.color['white-100'],
-      contentBackground: vars.color['white-100'],
+      mainBackground: vars.color['pink-50'],
+      contentBackground: vars.color['white-50'],
       mainFontColor: vars.color['black-500'],
       borderColor: vars.color['black-50'],
-      headerBackground: vars.color['white-200'],
+      headerBackground: vars.color['pink-50'],
       footerBackground: vars.color['white-200'],
       hoverColor: vars.color['white-50'],
       selectionColor: vars.color['gray-400'],
@@ -76,11 +76,11 @@ createGlobalTheme(':root', vars, {
 
 export const lightTheme = createTheme(vars.themeColor, {
   color: {
-    mainBackground: vars.color['white-100'],
-    contentBackground: vars.color['white-100'],
+    mainBackground: vars.color['pink-50'],
+    contentBackground: vars.color['white-50'],
     mainFontColor: vars.color['black-500'],
     borderColor: vars.color['black-50'],
-    headerBackground: vars.color['white-200'],
+    headerBackground: vars.color['pink-50'],
     footerBackground: vars.color['white-200'],
     hoverColor: vars.color['white-50'],
     selectionColor: vars.color['gray-400'],
@@ -106,7 +106,7 @@ export const darkTheme = createTheme(vars.themeColor, {
 
 globalStyle('body', {
   fontSize: vars.fontSize.small,
-  backgroundColor: vars.themeColor.color.mainBackground,
+  // backgroundColor: vars.themeColor.color.mainBackground,
   color: vars.themeColor.color.mainFontColor,
   transition: 'all 0.25s linear',
   cursor: `url('/images/cursor.png'), auto`,

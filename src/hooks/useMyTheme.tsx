@@ -2,6 +2,7 @@ import { ThemeName } from '@/types/themes';
 import { useTheme } from 'next-themes';
 import Cookies from 'universal-cookie';
 import useDebouncedClick from './useDebouncedClick';
+import { cookieNames, getCookieOption } from '@/utils/cookie-utils';
 
 /**
  * @desc 테마 데이터가 들어있는 훅
@@ -15,15 +16,12 @@ export default function useMyTheme() {
 
     theme.setTheme(value);
     const d = new Date();
-    d.setDate(new Date().getDate() + 1);
+    d.setFullYear(new Date().getFullYear() + 1);
 
     const cookies = new Cookies();
-    cookies.set('theme', value, {
-      domain: window.location.hostname,
-      path: '/',
+    cookies.set(cookieNames.theme, value, {
+      ...getCookieOption(),
       expires: d,
-      secure: false,
-      sameSite: 'strict',
     });
   }, 100);
 

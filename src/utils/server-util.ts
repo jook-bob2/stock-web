@@ -4,6 +4,7 @@ import { getIsBot } from './bot-util';
 import { ReadonlyRequestCookies } from 'next/dist/server/web/spec-extension/adapters/request-cookies';
 import { TOKEN_OPTION } from '@/constants/token';
 import { ThemeName } from '@/types/themes';
+import { cookieNames } from './cookie-utils';
 
 type ProfileType = {
   name: string;
@@ -19,6 +20,7 @@ export type InitServerDataType = {
   isBot: boolean;
   profile: ProfileType | null;
   theme: ThemeName;
+  isSideOpen: boolean;
 };
 
 /**
@@ -31,7 +33,10 @@ export const getServerInitData = async (): Promise<InitServerDataType> => {
   const userAgent = serverHeader.get('user-agent');
   const { isAndroid: isAos, isIOS: isIos, isMobile, isTablet, isDesktop, isSafari } = getSelectorDevice(userAgent);
   const isBot = getIsBot(userAgent);
-  const theme = (serverCookie.get('theme')?.value as ThemeName) || 'light';
+  const theme = (serverCookie.get(cookieNames.theme)?.value as ThemeName) || 'light';
+
+  const isSideOpenValue = serverCookie.get(cookieNames.isShowSide)?.value;
+  const isSideOpen = isSideOpenValue === 'true';
 
   return {
     isAos,
@@ -43,6 +48,7 @@ export const getServerInitData = async (): Promise<InitServerDataType> => {
     isBot,
     profile,
     theme,
+    isSideOpen,
   };
 };
 
