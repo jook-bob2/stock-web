@@ -2,6 +2,7 @@ import React from 'react';
 import * as style from './home.css';
 import executeQuery from '@/lib/db';
 import { unstable_noStore } from 'next/cache';
+import { MainServiceResType } from '@/types/services';
 
 type ReqType = {
   id: number;
@@ -36,7 +37,8 @@ type ResType = {
   lock_date: Date;
 }[];
 
-export default async function HomeTemplate() {
+export default async function HomeTemplate({ initData }: MainServiceResType) {
+  console.log('home initData ', initData);
   unstable_noStore();
   let email = '';
 
