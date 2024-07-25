@@ -5,8 +5,9 @@ import { style } from '@vanilla-extract/css';
 export const container = style({
   backgroundColor: vars.themeColor.color.contentBackground,
   minHeight: '84vh',
-  border: 'none',
   display: 'flex',
+  borderRadius: '40px',
+  boxSizing: 'border-box',
 });
 
 export const active = style({
@@ -24,4 +25,8 @@ export const none = style({
 
 export const childWrapper = style({
   width: '100%',
+  padding: '1.25rem',
+  border: `solid 1px ${vars.themeColor.color.headerBackground}`,
+  borderRadius: '40px',
+  boxSizing: 'border-box',
 });

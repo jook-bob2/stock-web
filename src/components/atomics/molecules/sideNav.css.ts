@@ -11,10 +11,8 @@ export const container = style({
   left: 0,
   height: '100vh',
   width: '100px',
-  backgroundColor: vars.themeColor.color.mainBackground,
-  transition: 'transform 0.3s ease-in-out',
+  backgroundColor: vars.themeColor.color.headerBackground,
   zIndex: 1,
-  borderTopRightRadius: '30px',
   '@media': {
     [`${MEDIA_QUERY.MAX_TABLET}`]: {
       display: 'none',
@@ -59,8 +57,28 @@ globalStyle(`${menuList} > a`, {
   fontSize: vars.fontSize.small,
 });
 
+export const activeIconWrapper = style({
+  borderRadius: '33%',
+  padding: '6px 10px',
+  display: 'flex',
+  justifyContent: 'center',
+  alignItems: 'center',
+  backgroundColor: vars.themeColor.color.iconBoxColor,
+  marginBottom: '0.75rem',
+});
+
+export const hiddenIconWrapper = style({
+  borderRadius: '33%',
+  padding: '6px 10px',
+  display: 'flex',
+  justifyContent: 'center',
+  alignItems: 'center',
+  backgroundColor: 'none',
+  marginBottom: '0.75rem',
+});
+
 export const icon = style({
   width: '24px',
   height: '24px',
-  fill: vars.themeColor.color.hamburgerColor,
+  fill: vars.themeColor.color.iconColor,
 });

@@ -18,8 +18,9 @@ export const vars = createGlobalThemeContract(
         footerBackground: null, // 푸터 색상
         hoverColor: null, // ::hover 색상
         selectionColor: null, // ::selection 색상
-        hamburgerColor: null, // 햄버거 색상
+        iconColor: null, // 햄버거 색상
         sideNavBgColor: null, // 사이드 메뉴 색상
+        iconBoxColor: null, // 아이콘을 감싸는 박스 색상
       },
     },
     fontSize: {
@@ -51,11 +52,12 @@ createGlobalTheme(':root', vars, {
       mainFontColor: vars.color['black-500'],
       borderColor: vars.color['black-50'],
       headerBackground: vars.color['pink-50'],
-      footerBackground: vars.color['white-200'],
+      footerBackground: vars.color['pink-50'],
       hoverColor: vars.color['white-50'],
       selectionColor: vars.color['gray-400'],
-      hamburgerColor: vars.color['stone-800'],
+      iconColor: vars.color['stone-800'],
       sideNavBgColor: vars.color['zinc-300'],
+      iconBoxColor: vars.color['violet-100'],
     },
   },
   fontSize: {
@@ -81,17 +83,18 @@ export const lightTheme = createTheme(vars.themeColor, {
     mainFontColor: vars.color['black-500'],
     borderColor: vars.color['black-50'],
     headerBackground: vars.color['pink-50'],
-    footerBackground: vars.color['white-200'],
+    footerBackground: vars.color['pink-50'],
     hoverColor: vars.color['white-50'],
     selectionColor: vars.color['gray-400'],
-    hamburgerColor: vars.color['stone-800'],
+    iconColor: vars.color['stone-800'],
     sideNavBgColor: vars.color['zinc-300'],
+    iconBoxColor: vars.color['violet-100'],
   },
 });
 
 export const darkTheme = createTheme(vars.themeColor, {
   color: {
-    mainBackground: vars.color['black-50'],
+    mainBackground: vars.color['zinc-800'],
     contentBackground: vars.color['slate-700'],
     mainFontColor: vars.color['white-200'],
     borderColor: vars.color['white-50'],
@@ -99,14 +102,15 @@ export const darkTheme = createTheme(vars.themeColor, {
     footerBackground: vars.color['zinc-800'],
     hoverColor: vars.color['gray-700'],
     selectionColor: vars.color['blue-400'],
-    hamburgerColor: vars.color['neutral-100'],
+    iconColor: vars.color['neutral-100'],
     sideNavBgColor: vars.color['zinc-700'],
+    iconBoxColor: vars.color['zinc-950'],
   },
 });
 
 globalStyle('body', {
   fontSize: vars.fontSize.small,
-  // backgroundColor: vars.themeColor.color.mainBackground,
+  backgroundColor: vars.themeColor.color.mainBackground,
   color: vars.themeColor.color.mainFontColor,
   transition: 'all 0.25s linear',
   cursor: `url('/images/cursor.png'), auto`,

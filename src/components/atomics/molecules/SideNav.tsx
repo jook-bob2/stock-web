@@ -5,8 +5,11 @@ import * as style from './sideNav.css';
 import MyLink from '../atoms/MyLink';
 import { SIDE_MENU_LIST } from '@/constants/menu';
 import { LayoutProps } from '@/components/layouts/MainLayout';
+import { usePathname } from 'next/navigation';
 
 export default function SideNav({ isSideOpen }: LayoutProps) {
+  const pathname = usePathname();
+
   return (
     <nav className={`${style.container} ${isSideOpen ? style.activeMenu : style.hideMenu}`}>
       <div className={style.menuListWrapper}>
@@ -16,7 +19,9 @@ export default function SideNav({ isSideOpen }: LayoutProps) {
               key={menu.link}
               className={style.menuList}>
               <MyLink href={menu.link}>
-                <menu.icon className={style.icon} />
+                <div className={`${pathname === menu.link ? style.activeIconWrapper : style.hiddenIconWrapper}`}>
+                  <menu.icon className={style.icon} />
+                </div>
                 {menu.name}
               </MyLink>
             </li>

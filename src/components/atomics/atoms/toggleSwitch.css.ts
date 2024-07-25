@@ -17,6 +17,7 @@ export const toggleSwitch = style({
   display: 'flex',
   alignItems: 'center',
   justifyContent: 'center',
+  boxShadow: `1px 1px 1px ${vars.color['gray-500']}`,
 });
 
 export const toggleSlider = style({

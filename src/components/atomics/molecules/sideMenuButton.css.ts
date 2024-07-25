@@ -38,7 +38,9 @@ export const buttonContainer = style({
  * @desc 메뉴 아이콘 색상
  */
 export const menuIcon = style({
-  color: vars.themeColor.color.hamburgerColor,
+  width: '1.75rem',
+  height: '1.75rem',
+  fill: vars.themeColor.color.iconColor,
 });
 
 /**
