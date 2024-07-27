@@ -32,7 +32,7 @@ export default function MainLayout({ children, ...props }: Props) {
   /**
    * @description 레이아웃 프롭스
    */
-  const layoutProp: LayoutProps = {
+  const layoutProps: LayoutProps = {
     ...props,
     isSideOpen,
     onClickToggleSide,
@@ -41,11 +41,11 @@ export default function MainLayout({ children, ...props }: Props) {
   return (
     <div className={style.container}>
       {/* 헤더 */}
-      <Header {...layoutProp} />
+      <Header {...layoutProps} />
       {/* 사이드 네비게이션 */}
-      <SideNav {...layoutProp} />
+      <SideNav {...layoutProps} />
       {/* 콘텐트 */}
-      <MainContent {...layoutProp}>{children}</MainContent>
+      <MainContent {...layoutProps}>{children}</MainContent>
       {/* 푸터 */}
       <Footer />
     </div>
