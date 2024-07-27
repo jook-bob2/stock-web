@@ -3,8 +3,9 @@ import executeQuery from '@/lib/db';
 import { DateTime } from 'luxon';
 import { UserSignUpRequest, UserSignUpResponse } from '@/types/models/user';
 import { ResponseType } from '@/types/api';
-import CryptoJS from 'crypto-js';
 import { QueryError, ResultSetHeader } from 'mysql2';
+import { generateSalt, hashPassword } from '@/utils/crypto-util';
+import { HASH_ITERATIONS, HASH_KEY_SIZE, PEPPER } from '@/constants/hash';
 
 /**
  * @description 회원가입 API
@@ -58,11 +59,22 @@ export async function POST(request: NextRequest) {
   try {
     // 현재 날짜와 시간을 reg_date로 생성 (YYYY-MM-DD HH:mm:ss)
     const joinDate = DateTime.now().toFormat('yyyy-MM-dd HH:mm:ss');
-    const hashedPassword = CryptoJS.SHA256(passwd).toString(CryptoJS.enc.Hex);
+    // 사용자 비밀번호 해싱
+    const salt = generateSalt(16);
+    const hashedPassword = hashPassword(passwd, salt, PEPPER, HASH_ITERATIONS, HASH_KEY_SIZE);
     const query = `
-        INSERT INTO user (email, passwd, name, nickname, hp, birth_date, join_date) VALUES ('${email}', '${hashedPassword}', '${name}', '${nickname}', '${hp}', '${birthDate}', '${joinDate}')
+        INSERT INTO user (email, passwd, name, nickname, hp, birth_date, join_date, salt) VALUES (?, ?, ?, ?, ?, ?, ?, ?)
       `;
-    const result = await executeQuery<UserSignUpRequest, ResultSetHeader>(query);
+    const result = await executeQuery<string[], ResultSetHeader>(query, [
+      email,
+      hashedPassword,
+      name,
+      nickname,
+      hp,
+      birthDate,
+      joinDate,
+      salt,
+    ]);
 
     response.data = result?.insertId !== undefined ? 1 : 0;
     response.statusCd = 'S200';

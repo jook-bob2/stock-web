@@ -9,7 +9,7 @@ import { HomeServiceReqType, HomeServiceResType } from '@/types/services';
  */
 export default function HomeService(props: HomeServiceReqType): HomeServiceResType {
   const { userInitData } = props;
-  const id = '4';
+  const id = '1';
 
   const { data, isLoading } = useApiQuery(id ? ['user', id] : null, () => getUserInfo({ id }), {
     initialData: userInitData,

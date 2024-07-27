@@ -1,10 +1,10 @@
 import executeQuery from '@/lib/db';
 import { NextRequest, NextResponse } from 'next/server';
-import CryptoJS from 'crypto-js';
 import { ResponseType } from '@/types/api';
 import { UserSignInResponse } from '@/types/models/user';
 import jwt from 'jsonwebtoken';
 import { JWT_REFRESH_SECRET, JWT_SECRET } from '@/constants/jwt';
+import { verifyPassword } from '@/utils/crypto-util';
 
 /**
  * @description 로그인 API
@@ -19,15 +19,15 @@ export async function POST(request: NextRequest) {
   };
 
   try {
-    const data = await executeQuery<string[], { id: number; passwd: string }[]>(
-      `SELECT id, passwd FROM user WHERE email=?`,
+    const data = await executeQuery<string[], { id: number; passwd: string; salt: string }[]>(
+      `SELECT id, passwd, salt FROM user WHERE email=?`,
       [email],
     );
 
     if (data && data?.length === 1) {
-      const { passwd: storedPasswd, id } = data[0];
-      const hashedPasswd = CryptoJS.SHA256(passwd).toString(CryptoJS.enc.Hex);
-      if (hashedPasswd === storedPasswd) {
+      const { passwd: storedPasswd, id, salt } = data[0];
+      const isPasswordValid = verifyPassword(passwd, storedPasswd, salt);
+      if (isPasswordValid) {
         // 비번이 일치하는 경우
 
         // JWT 토큰 생성
