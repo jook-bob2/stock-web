@@ -8,7 +8,7 @@ export default async function HomeTemplate(props: InitProps) {
   const {
     initData: { isBot },
   } = props;
-  const data = isBot ? await getUserInfo({ id: '1', gender: '1' }) : undefined;
+  const data = isBot ? await getUserInfo({ id: '1' }) : undefined;
 
   return (
     <section className={style.container}>
