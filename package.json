@@ -11,6 +11,7 @@
     "start:stage": "next start -p 4040",
     "start:prod": "next start -p 3000",
     "next:lint": "next lint",
+    "build": "next build",
     "lint": "eslint .",
     "format": "prettier --write .",
     "prepare": "husky"
